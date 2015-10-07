@@ -1,28 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>HiApp</title>
+  <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+  <div class="statusbar-overlay"></div>
+  <div class="panel-overlay"></div>
 
-<!-- We don't need full layout here, because this page will be parsed with Ajax-->
-<!-- Top Navbar-->
-<div class="navbar">
-  <div class="navbar-inner">
-    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
-    <div class="center sliding">About</div>
-    <div class="right">
-      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
-    </div>
-  </div>
-</div>
-<div class="pages">
-  <!-- Page, data-page contains page name-->
-  <div data-page="about" class="page">
-    <!-- Scrollable page content-->
-    <div class="page-content">
-      <div class="content-block">
-        <div class="content-block-inner">
-          <p>Here is About page!</p>
-          <p>Go <a href="#" class="back">back</a> or click  <a href="#" class="create-page">here </a>to create dynamic page.</p>
-          <p>Mauris posuere sit amet metus id venenatis. Ut ante dolor, tempor nec commodo rutrum, varius at sem. Nullam ac nisi non neque ornare pretium. Nulla mauris mauris, consequat et elementum sit amet, egestas sed orci. In hac habitasse platea dictumst.</p>
-          <p>Fusce eros lectus, accumsan eget mi vel, iaculis tincidunt felis. Nulla tincidunt pharetra sagittis. Fusce in felis eros. Nulla sit amet aliquam lorem, et gravida ipsum. Mauris consectetur nisl non sollicitudin tristique. Praesent vitae metus ac quam rhoncus mattis vel et nisi. Aenean aliquet, felis quis dignissim iaculis, lectus quam tincidunt ligula, et venenatis turpis risus sed lorem. Morbi eu metus elit. Ut vel diam dolor.</p>
+  <div class="views tabs toolbar-through">
+    <div id="settingView" class="view tab view-main active">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="center sliding i18n" data-i18n="app.name">0</div>
+        </div>
+      </div>
+      <div class="pages navbar-through">
+        <div data-page="setting" class="page">
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <div id="contactView" class="view tab">
+
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="center sliding i18n" data-i18n="app.name"></div>
+        </div>
+      </div>
+
+      <div class="pages navbar-through">
+        <div data-page="contactView" class="page contact-page">
+          <!-- Search bar -->
+          <form class="searchbar">
+            <div class="searchbar-input">
+              <input type="search" class="i18n" data-i18n="[placeholder]global.search">
+              <a href="#" class="searchbar-clear"></a>
+            </div>
+            <a href="#" class="searchbar-cancel i18n" data-i18n="global.cancel"></a>
+          </form>
+
+          <!-- Search bar overlay-->
+          <div class="searchbar-overlay"></div>
+
+          <div class="page-content">
+            <div class="list-block contacts-list searchbar-found">
+              <div class="list-group">
+                <ul></ul>
+              </div>
+            </div>
+            <div class="content-block searchbar-not-found i18n" data-i18n="index.nothing_found" >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- toolbar start -->
+    <div class="toolbar tabbar tabbar-labels">
+      <div class="toolbar-inner">
+            <!-- <a href="#homeView" class="tab-link active">
+                <i class="icon ios7-home-outline"></i>
+                <span class="tabbar-label i18n" data-i18n="index.tweet">1</span>
+            </a>
+          -->
+          <a href="#contactView" class="tab-link">
+            <i class="icon ios7-chatbubble-outline"></i>
+            <span class="tabbar-label i18n" data-i18n="index.contacts">2</span>
+          </a>
+
+          <a href="#settingView" class="tab-link">
+            <i class="icon ios7-gear-outline">
+              <!-- <span class="badge badge-red">4</span> -->
+            </i>
+            <span class="tabbar-label i18n" data-i18n="index.setting">3</span>
+          </a>
+        </div>
+      </div>
+      <!-- toolbar end -->
+    </div>
+
+    <!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
+    <script src="js/vendor.js"></script>
+    <script src="js/app.js" onload="require('my-app')"></script>
+  </body>
+
+  </html>

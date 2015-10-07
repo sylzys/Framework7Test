@@ -32,11 +32,11 @@ module.exports = {
 	},
 
 	hideToolbar: function() {
-		hiApp.hideToolbar('.toolbar');
+		myApp.hideToolbar('.toolbar');
 	},
 
 	showToolbar: function() {
-		hiApp.showToolbar('.toolbar');
+		myApp.showToolbar('.toolbar');
 	},
 
 	timeFormat: function(ms){
@@ -87,7 +87,12 @@ module.exports = {
 		}
 		return iLength;
 	},
-
+	getLocal: function(){
+        return localStorage.getItem('lang') || 'en-us';
+    },
+    setLocal: function(lang){
+        localStorage.setItem('lang', lang);
+    },
 	matchUrl: function(string){
 		var reg = /((http|ftp|https):\/\/)?[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&;:\/~\+#]*[\w\-\@?^=%&;\/~\+#])?/g;
 
